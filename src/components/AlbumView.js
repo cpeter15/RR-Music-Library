@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react'
-import {useParams, useHistory} from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useParams, useHistory } from 'react-router-dom'
 
 const AlbumView = (props) => {
     const { id } = useParams()
     const history = useHistory()
-    const [ albumData, setAlbumData ] = useState([])
-    
+    const [albumData, setAlbumData] = useState([])
+
     useEffect(() => {
         const fetchData = async () => {
             const API_URL = `http://localhost:4000/song/${id}`
@@ -19,13 +19,14 @@ const AlbumView = (props) => {
     const navButtons = () => {
         return (
             <div>
-                <button onClick={() => {history.push('/')}}>Home</button> | <button onClick={() => history.goBack()}>Back</button>
+                <button onClick={() => { history.push('/') }}>Home</button>
+                <button onClick={() => history.goBack()}>Back</button>
             </div>
         )
     }
 
-    const allAlbums =   albumData.filter(entity => entity.kind === 'song')
-                        .map((album, i) => { return (<div key={i}>{album.trackName}</div>)})
+    const allAlbums = albumData.filter(entity => entity.kind === 'song')
+        .map((album, i) => { return (<div key={i}>{album.trackName}</div>) })
 
     return (
         <div>

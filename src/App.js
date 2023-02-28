@@ -40,10 +40,10 @@ function App() {
           </DataContext.Provider>
         </Route>
         <Route path="/album/:id">
-          <AlbumView term={searchTerm} />
+          <AlbumView term={searchInput} />
         </Route>
         <Route path="/artist/:id">
-          <ArtistView term={searchTerm} />
+          <ArtistView term={searchInput} />
         </Route>
       </Router>
     </div>

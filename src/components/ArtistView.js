@@ -1,11 +1,11 @@
-import {useEffect, useState} from 'react'
-import {useParams, Link, useHistory} from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useParams, Link, useHistory } from 'react-router-dom'
 
 const ArtistView = () => {
     const { id } = useParams()
-    const [ artistData, setArtistData ] = useState([])
+    const [artistData, setArtistData] = useState([])
     const history = useHistory()
-    
+
     useEffect(() => {
         const API_URL = `http://localhost:4000/album/${id}`
         const fetchData = async () => {
@@ -17,19 +17,19 @@ const ArtistView = () => {
     }, [id])
 
     const allAlbums = artistData.filter(entity => entity.collectionType === 'Album')
-                        .map((album, i) => { 
-                            return (
-                                <div key={i}>
-                                    <Link to={`/album/${album.collectionId}`}>
-                                        <p>{album.collectionName}</p>
-                                    </Link>
-                                </div>)
-                                })
-    
+        .map((album, i) => {
+            return (
+                <div key={i}>
+                    <Link to={`/album/${album.collectionId}`}>
+                        <p>{album.collectionName}</p>
+                    </Link>
+                </div>)
+        })
+
     const navButtons = () => {
         return (
             <div>
-                <button onClick={() => {history.push('/')}}>Home</button> | <button onClick={() => history.goBack()}>Back</button>
+                <button onClick={() => { history.push('/') }}>Home</button> | <button onClick={() => history.goBack()}>Back</button>
             </div>
         )
     }
