@@ -15,8 +15,6 @@ const GalleryItem = (props) => {
             }}>
                 <h3>{props.item.trackName}</h3>
                 <h4>{props.item.collectionName}</h4>
-                <h3>{props.item.trackName}</h3>
-                <h4>{props.item.collectionName}</h4>
             </div>
         )
     }
@@ -29,7 +27,6 @@ const GalleryItem = (props) => {
                 'border': '1px solid black',
                 'margin': '2px',
                 'position': 'relative',
-                'backgroundImage': `url(${props.item.artworkUrl100})`,
                 'backgroundImage': `url(${props.item.artworkUrl100})`,
                 'backgroundRepeat': 'no-repeat',
                 'backgroundSize': 'cover',
